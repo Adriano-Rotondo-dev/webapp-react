@@ -24,7 +24,7 @@ export default function MoviesPage() {
 
       <div className="row">
         {movies.map((movie) => (
-          <div className="col-md-6 mb-4" key={movie.id}>
+          <div className="list col-md-6 mb-4" key={movie.id}>
             <MovieCard movie={movie} />
           </div>
         ))}

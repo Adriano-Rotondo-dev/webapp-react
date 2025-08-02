@@ -11,3 +11,15 @@ img {
   max-width: 30rem;
   object-fit: contain;
 }
+.list img {
+  transition: 1s ease;
+}
+.list img:hover {
+  transform: scale(1.145);
+}
+.detail img {
+  cursor: default;
+}
+card-img-top {
+  border-radius: 0.33rem;
+}

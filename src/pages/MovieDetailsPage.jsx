@@ -24,7 +24,7 @@ export default function MovieDetailsPage() {
         text={`Here you will find all the information about the movie you selected`}
       />
       <div className="container">
-        <div className=" col-sm-12 p-3">
+        <div className="detail col-sm-12 p-3">
           <MovieCard movie={movie} />
         </div>
         <div className="container m-5 d-flex justify-content-center gap-3">
@@ -34,7 +34,7 @@ export default function MovieDetailsPage() {
               if (movie.id > 1) {
                 navigate(`/movies/${movie.id - 1}`);
               } else {
-                navigate("/object-not-found");
+                navigate(`/movies/5`);
               }
             }}
           >
@@ -42,7 +42,13 @@ export default function MovieDetailsPage() {
           </button>
           <button
             className="fw-semibold rounded-pill px-4 py-2"
-            onClick={() => navigate(`/movies/${movie.id + 1}`)}
+            onClick={() => {
+              if (movie.id < 5) {
+                navigate(`/movies/${movie.id + 1}`);
+              } else {
+                navigate(`/movies/1`);
+              }
+            }}
           >
             Next Movie
           </button>
