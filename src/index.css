@@ -23,3 +23,7 @@ img {
 card-img-top {
   border-radius: 0.33rem;
 }
+
+#link {
+  color: rgb(173, 5, 173);
+}

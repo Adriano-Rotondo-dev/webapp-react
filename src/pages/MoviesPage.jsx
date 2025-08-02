@@ -11,7 +11,10 @@ export default function MoviesPage() {
   useEffect(() => {
     axios
       .get("http://localhost:3030/api/movies")
-      .then((res) => setMovies(res.data))
+      .then((res) => {
+        console.log(res.data);
+        setMovies(res.data);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -22,7 +25,7 @@ export default function MoviesPage() {
         text={`On this page you'll find the list of our top movies with infos fetched from our database.`}
       />
 
-      <div className="row">
+      <div className="row bg-dark">
         {movies.map((movie) => (
           <div className="list col-md-6 mb-4" key={movie.id}>
             <MovieCard movie={movie} />

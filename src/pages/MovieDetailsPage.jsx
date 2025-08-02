@@ -4,10 +4,13 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
+import StarRating from "../components/StarRating";
 
 export default function MovieDetailsPage() {
   const { id } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({
+    reviews: [],
+  });
 
   const navigate = useNavigate();
 
@@ -23,9 +26,22 @@ export default function MovieDetailsPage() {
         title="Welcome to the Movie Detail Page"
         text={`Here you will find all the information about the movie you selected`}
       />
-      <div className="container">
+      <div className="container bg-dark">
         <div className="detail col-sm-12 p-3">
           <MovieCard movie={movie} />
+          <div className="container mt-3">
+            {movie.reviews.map((review) => (
+              <div key={review.id} className="card mb-3">
+                <div className="card-body">
+                  <p className="card-text">
+                    Review by <span className="fw-bold"> {review.name} </span>
+                    <StarRating vote={review.vote} />
+                  </p>
+                  <p className="card-text fw-bold"> {review.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="container m-5 d-flex justify-content-center gap-3">
           <button

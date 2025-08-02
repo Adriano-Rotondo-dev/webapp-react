@@ -4,7 +4,7 @@ export default function MovieCard({ movie }) {
   return (
     <>
       <div className="card h-100 p-3">
-        <Link to={`/movies/${movie.id}`}>
+        <Link id="link" to={`/movies/${movie.id}`}>
           <img
             src={movie.image}
             className="card-img-top p-3 img-fluid"
@@ -13,6 +13,7 @@ export default function MovieCard({ movie }) {
         </Link>
         <div className="card-body">
           <Link
+            id="link"
             className="link link-underline link-underline-opacity-0"
             to={`/movie/${movie.id}`}
           >
