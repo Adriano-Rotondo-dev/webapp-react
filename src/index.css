@@ -70,7 +70,12 @@ img {
 .btn-404:active {
   transform: scale(0.9);
 }
-
+.btn-submit:hover {
+  background-color: #445566;
+}
+.btn-submit:hover > i {
+  color: #66ff33;
+}
 /*#endregion Btn*/
 
 .footer-link {

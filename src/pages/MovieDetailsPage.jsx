@@ -31,7 +31,7 @@ export default function MovieDetailsPage() {
         <div className="detail col-sm-12 p-3">
           <MovieCard movie={movie} />
           <div className="container mt-3">
-            {movie.reviews.map((review) => (
+            {movie?.reviews?.map((review) => (
               <div key={review.id} className="card mb-3">
                 <div className="card-body">
                   <p className="card-text">
@@ -86,7 +86,10 @@ export default function MovieDetailsPage() {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <button type="submit" className="btn-submit btn btn-primary w-25">
+              <button
+                type="submit"
+                className="btn-submit btn btn-secondary w-25"
+              >
                 <i className="bi bi-floppy"></i> Save
               </button>
             </div>
