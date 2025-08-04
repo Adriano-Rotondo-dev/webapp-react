@@ -11,7 +11,9 @@
 body {
   overflow-x: hidden;
 }
-
+h4 {
+  color: #66ff33;
+}
 img {
   max-height: 30rem;
   max-width: 30rem;
@@ -68,6 +70,7 @@ img {
 .btn-404:active {
   transform: scale(0.9);
 }
+
 /*#endregion Btn*/
 
 .footer-link {

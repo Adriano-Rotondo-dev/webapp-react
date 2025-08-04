@@ -23,8 +23,9 @@ export default function MovieDetailsPage() {
   return (
     <>
       <Jumbotron
-        title="Welcome to the Movie Detail Page"
-        text={`Here you will find all the information about the movie you selected`}
+        title={`This is the detail page of ${movie.title} `}
+        text={`Here you will find details and reviews for ${movie.title} 
+        and a form to add your own review`}
       />
       <div className="detail-card bg-dark">
         <div className="detail col-sm-12 p-3">
@@ -43,6 +44,55 @@ export default function MovieDetailsPage() {
             ))}
           </div>
         </div>
+        <h4 className="new_review">Add your Review</h4>
+        <div className="bg-light rounded">
+          <form className="card p-2 ">
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">
+                <span className="fw-bold">Username</span>
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                id="name"
+                aria-describedby="helpId"
+                placeholder="Type your name"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="rating" className="form-label">
+                <span className="fw-bold">Rating</span>
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                name="rating"
+                id="rating"
+                aria-describedby="helpId"
+                placeholder="Type your name"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content" className="form-label">
+                <span className="fw-bold">Review</span>
+              </label>
+              <textarea
+                className="form-control"
+                name="content"
+                id="content"
+                placeholder="Type your review here"
+                rows="3"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <button type="submit" className="btn-submit btn btn-primary w-25">
+                <i className="bi bi-floppy"></i> Save
+              </button>
+            </div>
+          </form>
+        </div>
+
         <div className="container py-5 d-flex justify-content-center gap-3">
           <button
             className="fw-semibold rounded-pill px-4 py-2"
