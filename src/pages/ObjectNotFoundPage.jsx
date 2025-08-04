@@ -12,8 +12,8 @@ export default function Errorpage() {
               The page you're looking for doesn't exist or has been moved.
             </p>
             <NavLink className="nav-link" to="/" aria-current="page">
-              <button className="btn-404 btn btn-secondary w-100 m-3 p-3 rounded  border-0">
-                Go Home and select another film!
+              <button className="btn-404 btn btn-secondary w-50 m-3 p-3 rounded  border-0">
+                HOME
               </button>
             </NavLink>
           </div>
