@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function MovieCard({ movie }) {
   return (
     <>
-      <div className="card h-100 p-3">
+      <div className="card h-100 p-3 bg-dark border-0">
         <Link id="link" to={`/movies/${movie.id}`}>
           <img
             src={movie.image}
@@ -11,7 +11,7 @@ export default function MovieCard({ movie }) {
             alt={movie.title}
           />
         </Link>
-        <div className="card-body">
+        <div className="card-body border rounded">
           <Link
             id="link"
             className="link link-underline link-underline-opacity-0"

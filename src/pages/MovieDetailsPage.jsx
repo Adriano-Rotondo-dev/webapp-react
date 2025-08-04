@@ -26,7 +26,7 @@ export default function MovieDetailsPage() {
         title="Welcome to the Movie Detail Page"
         text={`Here you will find all the information about the movie you selected`}
       />
-      <div className="container bg-dark">
+      <div className="detail-card bg-dark">
         <div className="detail col-sm-12 p-3">
           <MovieCard movie={movie} />
           <div className="container mt-3">
@@ -43,7 +43,7 @@ export default function MovieDetailsPage() {
             ))}
           </div>
         </div>
-        <div className="container m-5 d-flex justify-content-center gap-3">
+        <div className="container py-5 d-flex justify-content-center gap-3">
           <button
             className="fw-semibold rounded-pill px-4 py-2"
             onClick={() => {

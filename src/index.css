@@ -6,24 +6,70 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* remove horizontal scrollbar from pages */
+body {
+  overflow-x: hidden;
+}
+
 img {
   max-height: 30rem;
   max-width: 30rem;
   object-fit: contain;
 }
-.list img {
-  transition: 1s ease;
+.navbar {
+  background-color: black;
 }
-.list img:hover {
-  transform: scale(1.145);
+
+.nav-link {
+  font-weight: 600;
+  padding: 1rem;
+  margin: 0 1rem;
 }
+
+/*#region Card*/
+.card-body {
+  color: #637281;
+  font-weight: 600;
+}
+
+.card #link {
+  color: #66ff33;
+}
+/*#endregion Card*/
+
+/*#region Details*/
+.detail-card {
+  padding: 0 15rem;
+}
+
 .detail img {
   cursor: default;
 }
-card-img-top {
-  border-radius: 0.33rem;
+/*#endregion Details*/
+
+/*#region Btn*/
+.btn-home:hover {
+  background-color: #445566;
 }
 
-#link {
-  color: rgb(173, 5, 173);
+.btn-home:hover > i {
+  color: #66ff33;
+}
+.btn-404 {
+  background-color: #445566;
+  border-radius: 0.33rem;
+  color: white;
+  transition: all 0.5s ease;
+}
+.btn-404:hover {
+  background-color: #66ff33;
+}
+.btn-404:active {
+  transform: scale(0.9);
+}
+/*#endregion Btn*/
+
+.footer-link {
+  color: #637281;
 }

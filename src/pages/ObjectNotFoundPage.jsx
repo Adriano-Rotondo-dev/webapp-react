@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function Errorpage() {
   return (
     <>
-      <div className="custom-bg text-dark">
+      <div className="custom-bg text-light">
         <div className="d-flex align-items-center justify-content-center min-vh-100 px-2">
           <div className="text-center">
             <h1 className="display-1 fw-bold">404</h1>
@@ -12,7 +12,7 @@ export default function Errorpage() {
               The page you're looking for doesn't exist or has been moved.
             </p>
             <NavLink className="nav-link" to="/" aria-current="page">
-              <button className=" fw-semibold rounded-pill px-4 py-2">
+              <button className="btn-404 btn btn-secondary w-100 m-3 p-3 rounded  border-0">
                 Go Home and select another film!
               </button>
             </NavLink>
