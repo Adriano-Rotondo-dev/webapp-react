@@ -8,6 +8,31 @@ import StarRating from "../components/StarRating";
 
 export default function MovieDetailsPage() {
   const { id } = useParams();
+  const [formData, setFormData] = useState({
+    name: "",
+    vote: "",
+    text: "",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    //get form Data
+    console.log(formData);
+
+    //perform fetch request to store the review
+    axios
+      .post(`http://localhost:3030/api/movies/${id}/reviews`, formData)
+      .then((res) => {
+        console.log(res),
+          setFormData({
+            name: "",
+            vote: "",
+            text: "",
+          });
+      })
+      .catch((err) => console.log(err));
+  }
+
   const [movie, setMovie] = useState({
     reviews: [],
   });
@@ -46,7 +71,7 @@ export default function MovieDetailsPage() {
         </div>
         <h4 className="new_review">Add your Review</h4>
         <div className="bg-light rounded">
-          <form className="card p-2 ">
+          <form className="card p-2" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 <span className="fw-bold">Username</span>
@@ -58,31 +83,43 @@ export default function MovieDetailsPage() {
                 id="name"
                 aria-describedby="helpId"
                 placeholder="Type your name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="rating" className="form-label">
+              <label htmlFor="vote" className="form-label">
                 <span className="fw-bold">Rating</span>
               </label>
               <input
                 type="text"
                 className="form-control"
-                name="rating"
-                id="rating"
+                name="vote"
+                id="vote"
                 aria-describedby="helpId"
                 placeholder="Type your name"
+                value={formData.vote}
+                onChange={(e) =>
+                  setFormData({ ...formData, vote: e.target.value })
+                }
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="content" className="form-label">
+              <label htmlFor="text" className="form-label">
                 <span className="fw-bold">Review</span>
               </label>
               <textarea
                 className="form-control"
-                name="content"
-                id="content"
+                name="text"
+                id="text"
                 placeholder="Type your review here"
                 rows="3"
+                value={formData.text}
+                onChange={(e) =>
+                  setFormData({ ...formData, text: e.target.value })
+                }
               />
             </div>
             <div className="d-flex justify-content-center">
