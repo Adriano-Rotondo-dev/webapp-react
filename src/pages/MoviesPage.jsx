@@ -6,11 +6,12 @@ import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
 
 export default function MoviesPage() {
+  const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3030/api/movies")
+      .get(`${API_ENDPOINT}/api/movies`)
       .then((res) => {
         console.log(res.data);
         setMovies(res.data);

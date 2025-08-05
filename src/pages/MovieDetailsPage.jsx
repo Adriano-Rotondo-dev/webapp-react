@@ -8,6 +8,7 @@ import MovieReviews from "../components/MovieReviews";
 import AddReview from "../components/AddReview";
 
 export default function MovieDetailsPage() {
+  const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
   const { id } = useParams();
   const [formData, setFormData] = useState({
     name: "",
@@ -40,7 +41,7 @@ export default function MovieDetailsPage() {
     //perform fetch request to store the review
     //if you encounter no errors in formInputs, POST the new review
     axios
-      .post(`http://localhost:3030/api/movies/${id}/reviews`, formData)
+      .post(`${API_ENDPOINT}/api/movies/${id}/reviews`, formData)
       .then((res) => {
         console.log(res),
           setFormData({
