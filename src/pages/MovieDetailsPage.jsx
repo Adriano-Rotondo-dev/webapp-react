@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
-import StarRating from "../components/StarRating";
+import MovieReviews from "../components/MovieReviews";
 import AddReview from "../components/AddReview";
 
 export default function MovieDetailsPage() {
@@ -57,17 +57,7 @@ export default function MovieDetailsPage() {
         <div className="detail col-sm-12 p-3">
           <MovieCard movie={movie} />
           <div className="container mt-3">
-            {movie?.reviews?.map((review) => (
-              <div key={review.id} className="card mb-3">
-                <div className="card-body">
-                  <p className="card-text">
-                    Review by <span className="fw-bold"> {review.name} </span>
-                    <StarRating vote={review.vote} />
-                  </p>
-                  <p className="card-text fw-bold"> {review.text}</p>
-                </div>
-              </div>
-            ))}
+            <MovieReviews movie={movie} />
           </div>
         </div>
 
