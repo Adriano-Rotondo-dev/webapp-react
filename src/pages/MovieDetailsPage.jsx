@@ -19,8 +19,26 @@ export default function MovieDetailsPage() {
     e.preventDefault();
     //get form Data
     console.log(formData);
+    //validation for name imput
+    if (!formData.name.trim()) {
+      alert("Insert a valid Name");
+      console.error(formData.name); //log the user input in console
+      return; // ❌ interrupt POST
+    }
+    //validation for vote input
+    if (formData.vote < 1 || formData.vote > 5) {
+      console.error(formData.vote); //log the user input in console
+      return; // ❌ interrupt POST
+    }
+    //validation for text input
+    if (!formData.text.trim()) {
+      alert("Your Review is empty!");
+      console.error(formData.text); //log the user input in console
+      return; // ❌ interrupt POST
+    }
 
     //perform fetch request to store the review
+    //if you encounter no errors in formInputs, POST the new review
     axios
       .post(`http://localhost:3030/api/movies/${id}/reviews`, formData)
       .then((res) => {
@@ -33,7 +51,6 @@ export default function MovieDetailsPage() {
       })
       .catch((err) => console.log(err));
   }
-
   const [movie, setMovie] = useState({
     reviews: [],
   });
@@ -96,21 +113,4 @@ export default function MovieDetailsPage() {
       </div>
     </>
   );
-}
-
-{
-  /* Previous rendering of movie card 
-     <div className="card d-flex flex-row w-100">
-            <img
-              src={movie.image}
-              className="img-fluid p-5 movie-img"
-              alt={movie.title}
-            />
-            <div className="card-body">
-              <h5 className="card-title">{movie.title}</h5>
-              <p className="card-text">{movie.director}</p>
-              <p className="card-text">Genre: {movie.genre}</p>
-              <p className="card-text">Relese Year: {movie.release_year}</p>
-              <p className="card-text">Synopsos: {movie.abstract}</p>
-            </div> */
 }

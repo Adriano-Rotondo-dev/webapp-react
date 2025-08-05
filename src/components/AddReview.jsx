@@ -39,12 +39,14 @@ export default function AddReview({ handleSubmit, formData, setFormData }) {
                 <span className="fw-bold">Rating</span>
               </label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 name="vote"
                 id="vote"
+                min="1"
+                max="5"
                 aria-describedby="helpId"
-                placeholder="Type your name"
+                placeholder="Rate the movie from 1 to 5!"
                 value={formData.vote}
                 onChange={(e) =>
                   setFormData({ ...formData, vote: e.target.value })
