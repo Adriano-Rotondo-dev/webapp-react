@@ -6,6 +6,7 @@ import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
 import MovieReviews from "../components/MovieReviews";
 import AddReview from "../components/AddReview";
+import Loading from "../components/Loading";
 
 export default function MovieDetailsPage() {
   const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
@@ -55,15 +56,24 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState({
     reviews: [],
   });
-
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get(`${API_ENDPOINT}/api/movies/${id}`).then((res) => {
-      console.log(res.data);
-      setMovie(res.data);
+      setTimeout(() => {
+        console.log(res.data);
+        setMovie(res.data);
+        setIsLoading(false);
+      }, 500);
     });
   }, [id]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <Jumbotron
