@@ -1,23 +1,11 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useMovies } from "../contexts/MoviesContext";
 
 //components
 import Jumbotron from "../components/Jumbotron";
 import MovieCard from "../components/MovieCard";
 
 export default function MoviesPage() {
-  const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${API_ENDPOINT}/api/movies`)
-      .then((res) => {
-        console.log(res.data);
-        setMovies(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  const { movies } = useMovies();
 
   return (
     <>
