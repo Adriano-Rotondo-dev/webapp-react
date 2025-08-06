@@ -59,7 +59,7 @@ export default function MovieDetailsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3030/api/movies/${id}`).then((res) => {
+    axios.get(`${API_ENDPOINT}/api/movies/${id}`).then((res) => {
       console.log(res.data);
       setMovie(res.data);
     });
